@@ -84,7 +84,7 @@ export default {
   },
   computed: {
     saleBorderClass(){
-      return selectedRobot.head.onSale? "sale-border" : ""
+      return this.selectedRobot.head.onSale? "sale-border" : ""
     },
     headBorderStyle() {
       return {
