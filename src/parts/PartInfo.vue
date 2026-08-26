@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import parts from '../data/parts';
+import getPartsMixin from "./get-parts-mixin";
 
 export default {
     name: 'PartInfo',
@@ -16,10 +16,11 @@ export default {
         partType: {type: String, required: true},
         id: {type: String, validator(value) {return Number.isInteger(+value);}, required: true}
     },
+    mixins: [getPartsMixin],
     computed: {
         part(){
             const {partType, id} = this
-            return parts[partType].find(part => part.id === +id);
+            return this.parts[partType].find(part => part.id === +id);
         }
     },
 }
