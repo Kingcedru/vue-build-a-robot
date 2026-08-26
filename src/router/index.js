@@ -58,6 +58,10 @@ export default createRouter({
             name: 'Parts',
             component: PartInfo,
             props: true,
+            beforeEnter(to, from, next) {
+                const isValid = Number.isInteger(+to.params.id);
+                next(isValid)
+            }
         }
     ],
 });
